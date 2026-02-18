@@ -1,0 +1,4 @@
+TODO:
+- rotate key: AKIAIOSFODNN7EXAMPLE
+- remember to remove 'password=SuperSecretPassword123!' from docs
+- do not commit .pem files (oops)

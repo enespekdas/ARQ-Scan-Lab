@@ -1,0 +1,13 @@
+server:
+  port: 8080
+security:
+  tls:
+    verifySsl: false
+  apiKey: "ARQ-FAKE-API-KEY-1234567890"
+database:
+  url: "jdbc:postgresql://localhost:5432/arq"
+  username: "arq"
+  password: "SuperSecretPassword123!"
+logging:
+  level:
+    root: INFO

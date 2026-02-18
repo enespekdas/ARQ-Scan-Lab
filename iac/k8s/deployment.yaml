@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arq-scan-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arq-scan-lab
+  template:
+    metadata:
+      labels:
+        app: arq-scan-lab
+    spec:
+      containers:
+        - name: app
+          image: arq/scan-lab:latest
+          securityContext:
+            privileged: true   # misconfig
+            runAsUser: 0        # root
+          env:
+            - name: DB_PASSWORD
+              value: "SuperSecretPassword123!"  # secret in manifest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: arq-scan-lab-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: arq-scan-lab
+  ports:
+    - port: 80
+      targetPort: 8080
