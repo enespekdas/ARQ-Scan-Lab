@@ -8,7 +8,7 @@ import java.util.Base64;
 public class InsecureCrypto {
 
     // Weak: hardcoded key + AES/ECB + MD5
-    private static final String HARDCODED_KEY = "0123456789ABCDEFA31a";
+    private static final String HARDCODED_KEY = "";
 
     public static String md5Hex(String input) throws Exception {
         MessageDigest md = MessageDigest.getInstance("MD5"); // weak
